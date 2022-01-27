@@ -1,0 +1,6 @@
+{
+  "expo.jsEngine": "jsc",
+  "ffmpeg-kit-react-native.subspecs": [
+    "video"
+  ]
+}

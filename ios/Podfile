@@ -1,0 +1,35 @@
+require File.join(File.dirname(`node --print "require.resolve('expo/package.json')"`), "scripts/autolinking")
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/react-native-unimodules/cocoapods.rb'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '12.1'
+
+target 'expoffmpegkitexample' do
+  use_expo_modules!
+  post_integrate do |installer|
+    begin
+      expo_patch_react_imports!(installer)
+    rescue => e
+      Pod::UI.warn e
+    end
+  end
+  use_unimodules!
+# @generated begin ffmpeg-kit-react-native-import - expo prebuild (DO NOT MODIFY) sync-a79a962553e9fe0961383adf881bd0dada86e29b
+  pod 'ffmpeg-kit-react-native', :subspecs => podfile_properties['ffmpeg-kit-react-native.subspecs'] || [], :podspec => File.join(File.dirname(`node --print "require.resolve('ffmpeg-kit-react-native/package.json')"`), "ffmpeg-kit-react-native.podspec")
+# @generated end ffmpeg-kit-react-native-import
+  config = use_native_modules!
+
+  pod 'expo-dev-launcher', path: '../node_modules/expo-dev-launcher', :configurations => :debug
+  pod 'expo-dev-menu', path: '../node_modules/expo-dev-menu', :configurations => :debug
+  use_react_native!(:path => config["reactNativePath"])
+
+  # Uncomment to opt-in to using Flipper
+  #
+  # if !ENV['CI']
+  #   use_flipper!('Flipper' => '0.75.1', 'Flipper-Folly' => '2.5.3', 'Flipper-RSocket' => '1.3.1')
+  #   post_install do |installer|
+  #     flipper_post_install(installer)
+  #   end
+  # end
+end

@@ -9,4 +9,4 @@
 
 - MacOSX >= 11
 - XCode >= 13
-- expoSDK >= 44
+- expoSDK = 45

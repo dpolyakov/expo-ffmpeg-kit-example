@@ -6,7 +6,7 @@
     "scheme": "dpolyakovapp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/convert.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -24,13 +24,10 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/convert.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.dpolyakov.expoffmpegkitexample"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     },
     "plugins": [
       [
@@ -38,7 +35,34 @@
         {
           "package": "video"
         }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 31,
+            "targetSdkVersion": 31,
+            "minSdkVersion": 24,
+            "buildToolsVersion": "31.0.0",
+            "packagingOptions": {
+              "pickFirst": [
+                "lib/arm64-v8a/libc++_shared.so",
+                "lib/armeabi-v7a/libc++_shared.so",
+                "lib/x86/libc++_shared.so",
+                "lib/x86_64/libc++_shared.so"
+              ]
+            }
+          },
+          "ios": {
+            "deploymentTarget": "13.0"
+          }
+        }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "00ac904b-1e51-4234-b10a-5ec57ed1364d"
+      }
+    }
   }
 }

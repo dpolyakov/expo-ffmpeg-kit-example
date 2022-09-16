@@ -9,4 +9,7 @@
 
 - MacOSX >= 11
 - XCode >= 13
-- expoSDK = 45
+- expoSDK = 46
+
+### Copyrights
+[Convert icons created by Hilmy Abiyyu A. - Flaticon](https://www.flaticon.com/free-icons/convert)

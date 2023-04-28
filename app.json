@@ -30,12 +30,7 @@
       "package": "com.dpolyakov.expoffmpegkitexample"
     },
     "plugins": [
-      [
-        "@config-plugins/ffmpeg-kit-react-native",
-        {
-          "package": "video"
-        }
-      ],
+
       [
         "expo-build-properties",
         {
